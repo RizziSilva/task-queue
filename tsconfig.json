@@ -1,0 +1,16 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "@/*": ["./*"],
+      "@components": ["./src/components"],
+      "@pages": ["./src/app-pages"],
+      "@statics": ["./src/statics"],
+      "@constants": ["./src/constants"],
+      "@services": ["./src/services"],
+      "@utils": ["./src/utils"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
+}
