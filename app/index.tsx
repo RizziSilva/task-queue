@@ -1,9 +1,5 @@
-import { Text, View } from "react-native";
+import { HomePage } from '@pages'
 
 export default function Index() {
-  return (
-    <View>
-      <Text>Task Queue.</Text>
-    </View>
-  );
+  return <HomePage />
 }
