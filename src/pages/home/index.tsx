@@ -1,11 +1,11 @@
-import { Task } from '@components'
-import { MOCK_TASK } from '@constants'
 import { View } from 'react-native'
+import { Task } from '@components'
+import { MOCK_TASKS } from '@constants'
 
 export function HomePage() {
-  return (
-    <View>
-      <Task title={MOCK_TASK.title} description={MOCK_TASK.description} />
-    </View>
-  )
+  function renderTasks() {
+    return MOCK_TASKS.map((task, index) => <Task key={index} title={task.title} description={task.description} />)
+  }
+
+  return <View>{renderTasks()}</View>
 }

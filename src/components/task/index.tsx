@@ -1,18 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { Checkbox } from '../checkbox'
+import { styles } from './style'
+import { TaskProps } from './types'
 
-type props = {
-  title: string
-  description?: string
-}
-
-export function Task({ title, description }: props) {
+export function Task({ title, description }: TaskProps) {
   function handleCheckboxChange() {}
 
   function renderDescription() {
     if (!description) return null
 
-    return <Text style={styles.description}>{description}</Text>
+    return (
+      <Text numberOfLines={1} style={styles.description}>
+        {description}
+      </Text>
+    )
   }
 
   return (
@@ -21,33 +22,11 @@ export function Task({ title, description }: props) {
         <Checkbox checked={false} onChange={handleCheckboxChange} />
       </View>
       <View style={styles.containerInfo}>
-        <Text style={styles.title}>{title}</Text>
+        <Text numberOfLines={1} style={styles.title}>
+          {title}
+        </Text>
         {renderDescription()}
       </View>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  containerTask: {
-    display: 'flex',
-    flexDirection: 'row',
-    padding: 8,
-    borderColor: '#000',
-    borderStyle: 'solid',
-    borderBottomWidth: 1,
-    alignItems: 'flex-start',
-  },
-  containerCheckbox: {
-    paddingTop: 2,
-  },
-  containerInfo: {
-    marginLeft: 10,
-  },
-  title: {
-    fontSize: 16,
-  },
-  description: {
-    fontSize: 14,
-  },
-})
